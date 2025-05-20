@@ -5,8 +5,10 @@ public class TestOpponentAI : MonoBehaviour
     public Attack attack;
     public float attackInterval = 2f;
 
-    private void Start()
+    void Start()
+
     {
+        attack = GetComponent<Attack>();
         InvokeRepeating(nameof(PerformAIattack), attackInterval, attackInterval);
     }
 
