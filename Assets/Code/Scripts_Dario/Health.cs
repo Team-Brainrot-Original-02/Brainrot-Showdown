@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 100f; 
-    private float currentHealth;   
+    public float maxHealth = 10000000000f; 
+    [SerializeField] private float currentHealth;   
     public Slider healthBar;      
 
     void Start()
@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
             currentHealth = 0;    
             Die();              
         }
-        UpdateHealthBar();  
+        //UpdateHealthBar();  
     }
 
     private void UpdateHealthBar()

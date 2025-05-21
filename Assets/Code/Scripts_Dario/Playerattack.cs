@@ -9,8 +9,9 @@ public class Playerattack : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
+            Debug.Log("Space Pressed");
             attack.PerformAttack();
         }
     }

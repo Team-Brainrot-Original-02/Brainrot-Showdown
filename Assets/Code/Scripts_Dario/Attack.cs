@@ -11,12 +11,12 @@ public class Attack : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.DrawWireSphere(this.transform.position, attackRange);
     }
 
     public void PerformAttack()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange, opponentLayer);
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, attackRange, opponentLayer);
         foreach (var hitCollider in hitColliders)
         {
             Health opponentHealth = hitCollider.GetComponent<Health>();
