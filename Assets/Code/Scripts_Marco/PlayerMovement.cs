@@ -1,26 +1,105 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.XR;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private CharacterController characterController;
-    private float speed = 8f;
+    private PlayerInputActions inputActions;
+    private Vector2 moveInput;
+
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float gravity = 9.81f;
+    [SerializeField] private float jumpHeight = 2f;
+    [SerializeField] private bool isGrounded = true;
+
+    private bool isDodging = false;
+    private float dodgeCooldown = 2f;
+    private float dodgeTimer = 0f;
+    private float dodgeDuration = 0.3f;
+
+    private Rigidbody rb;
 
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        inputActions = new PlayerInputActions();
+
+        inputActions.Gameplay.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        inputActions.Gameplay.Move.canceled += ctx => moveInput = Vector2.zero;
+
+        inputActions.Gameplay.Jump.performed += ctx => Jump();
+        inputActions.Gameplay.Dogde.performed += ctx => Dogde();
+
+        rb = GetComponent<Rigidbody>();
     }
+
+    private void OnEnable() => inputActions.Gameplay.Enable();
+    private void OnDisable() => inputActions.Gameplay.Disable();
 
     private void Update()
     {
-        Movement();
+        HandleDodgeCooldown();
+        Move();
     }
 
-    private void Movement()
+    private void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal");
+        if (isDodging) return;
+        Vector2 movement = new Vector2(moveInput.x * moveSpeed, VerticalVelocity());
+        rb.linearVelocity = movement;
+    }
 
-        Vector3 movement = new Vector3 (horizontal, 0, 0);
-        characterController.Move(movement * Time.deltaTime * speed);
+    private void Jump()
+    {
+        if (isGrounded)
+        {
+            rb.AddForce(Vector2.up * Mathf.Sqrt(jumpHeight * gravity * 2), ForceMode.VelocityChange);
+            isGrounded = false;
+        }
+    }
+
+    private float VerticalVelocity()
+    {
+        // nel caso di gravity too fluffy
+        // change the logic here
+        return rb.linearVelocity.y;
+    }
+
+    private float GetGroundHeight()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(rb.transform.position, Vector3.down, out hit, Mathf.Infinity))
+        {
+            return hit.point.y;
+        }
+        return rb.transform.position.y;
+    }
+
+    private void Dogde()
+    {
+        if (dodgeTimer > 0 || isDodging) return;
+
+        isDodging = true;
+        dodgeTimer = dodgeCooldown;
+        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * 2, rb.linearVelocity.y);
+        Invoke(nameof(EndDodge), dodgeDuration);
+    }
+
+    private void EndDodge()
+    {
+        isDodging = false;
+    }
+
+    private void HandleDodgeCooldown()
+    {
+        if (dodgeTimer > 0)
+            dodgeTimer -= Time.deltaTime;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.contacts[0].normal.y > 0.5f)
+            isGrounded = true;
     }
 }
