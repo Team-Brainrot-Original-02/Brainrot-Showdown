@@ -19,11 +19,15 @@ public class Attack : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, attackRange, opponentLayer);
         foreach (var hitCollider in hitColliders)
         {
-            Health opponentHealth = hitCollider.GetComponent<Health>();
-            if (opponentHealth != null)
+            if(hitCollider.name != this.gameObject.name)
             {
-                opponentHealth.TakeDamage(damage);
-                Debug.Log($"Attacked [{hitCollider.gameObject.name} dealing {damage} damage");
+
+                Health opponentHealth = hitCollider.GetComponent<Health>();
+                if (opponentHealth != null)
+                {
+                    opponentHealth.TakeDamage(damage);
+                    Debug.Log($"Attacked [{hitCollider.gameObject.name} dealing {damage} damage");
+                }
             }
         }
 
