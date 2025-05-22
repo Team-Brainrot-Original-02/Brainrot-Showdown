@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class Shield : MonoBehaviour
     public bool isShielAvaible;
     public float shieldCooldown;
     public float shieldDuration;
+    public Action onShieldUp;
+    public Action onShieldDown;
 
     private void Update()
     {
@@ -22,12 +25,12 @@ public class Shield : MonoBehaviour
         if (isShieldUp == true)
         {
             Debug.Log("Shield is up");
-            // add shield effect here
+            onShieldUp?.Invoke();
         }
         else
         {
             Debug.Log("Shield is down");
-            // remove shield effect here
+            onShieldDown?.Invoke();
         }
 
     }
