@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class Fireball : MonoBehaviour
 {
     public float bulletSpeed;
     public float bulletDamage;
@@ -13,6 +13,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private void OnEnable()
     {
-        Rigidbody.AddForce(transform.forward * bulletSpeed);
+        Rigidbody.AddForce(transform.right * bulletSpeed);
     }
 }
