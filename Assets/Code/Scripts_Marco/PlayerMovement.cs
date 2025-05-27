@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float dodgeDuration = 0.3f;
 
     private Rigidbody rb;
-    private ParticleSystem dogde;
+    [SerializeField] private GameObject dogde;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Gameplay.Dogde.performed += ctx => Dogde();
 
         rb = GetComponent<Rigidbody>();
-        dogde = GetComponentInChildren<ParticleSystem>();
+        //dogde = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnEnable() => inputActions.Gameplay.Enable();
@@ -86,12 +86,13 @@ public class PlayerMovement : MonoBehaviour
         dodgeTimer = dodgeCooldown;
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * 2, rb.linearVelocity.y);
         Invoke(nameof(EndDodge), dodgeDuration);
-        dogde.Play();
+        dogde.SetActive(true);
     }
 
     private void EndDodge()
     {
         isDodging = false;
+        dogde.SetActive(false);
     }
 
     private void HandleDodgeCooldown()
