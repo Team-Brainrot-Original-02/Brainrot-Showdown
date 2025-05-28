@@ -3,7 +3,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public CharacterHealthData healthData; 
-    private float currentHealth;
+   [SerializeField] private float currentHealth;
     public GameObject[] healthIcons;
     public bool isPlayer;
 

@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 10
-  bulletDamage: 0
+  bulletDamage: 1
 --- !u!114 &8078117614401944776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17638a66edf4df24a8d348fd332bfac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  attackRange: 1
+  damage: 1
+  attackRange: 3
   opponentLayer:
     serializedVersion: 2
     m_Bits: 1

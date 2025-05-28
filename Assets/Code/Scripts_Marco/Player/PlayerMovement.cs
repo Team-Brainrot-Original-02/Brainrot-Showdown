@@ -13,14 +13,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float gravity = 9.81f;
     [SerializeField] private float jumpHeight = 2f;
     [SerializeField] private bool isGrounded = true;
-
+    //
     private bool isDodging = false;
     private float dodgeCooldown = 2f;
     private float dodgeTimer = 0f;
-    private float dodgeDuration = 0.3f;
+    [SerializeField]private float dodgeDuration = 0.3f;
 
     private Rigidbody rb;
-    private ParticleSystem dodge;
+    [SerializeField] private GameObject dodge;
 
     private void Awake()
     {
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         inputActions.Gameplay.Dodge.performed += ctx => Dodge();
 
         rb = GetComponent<Rigidbody>();
-        dodge = GetComponentInChildren<ParticleSystem>();
+        //dodge = GetComponentInChildren<ParticleSystem>();
     }
 
     private void OnEnable() => inputActions.Gameplay.Enable();
@@ -86,12 +86,14 @@ public class PlayerMovement : MonoBehaviour
         dodgeTimer = dodgeCooldown;
         rb.linearVelocity = new Vector2(moveInput.x * moveSpeed * 2, rb.linearVelocity.y);
         Invoke(nameof(EndDodge), dodgeDuration);
-        dodge.Play();
+        //dodge.Play();
+        dodge.SetActive(true);
     }
 
     private void EndDodge()
     {
         isDodging = false;
+        dodge.SetActive(false);
     }
 
     private void HandleDodgeCooldown()
