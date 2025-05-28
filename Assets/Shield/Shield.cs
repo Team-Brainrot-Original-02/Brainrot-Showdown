@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     public bool isShieldUp;
-    public bool isShielAvaible;
+    public bool isShieldAvaible;
     public float shieldCooldown;
     public float shieldDuration;
     public Action onShieldUp;
@@ -14,10 +14,10 @@ public class Shield : MonoBehaviour
     private void Update()
     {
         // input for shield activation
-        if (Input.GetKeyDown(KeyCode.Space) && isShielAvaible == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isShieldAvaible == true)
         {
             isShieldUp = true;
-            isShielAvaible = false;
+            isShieldAvaible = false;
             StartCoroutine(ShieldCooldown());
             StartCoroutine(ShieldDuration());
         }
@@ -38,7 +38,7 @@ public class Shield : MonoBehaviour
     IEnumerator ShieldCooldown()
     {
         yield return new WaitForSeconds(shieldCooldown);
-        isShielAvaible = true;
+        isShieldAvaible = true;
         Debug.Log("Shield is available");
 
     }
@@ -52,6 +52,6 @@ public class Shield : MonoBehaviour
     private void Start()
     {
         isShieldUp = false;
-        isShielAvaible = true;
+        isShieldAvaible = true;
     }
 }
