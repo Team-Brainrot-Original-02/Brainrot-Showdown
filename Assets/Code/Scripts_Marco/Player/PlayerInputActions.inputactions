@@ -24,9 +24,27 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dogde",
+                    "name": "Dodge",
                     "type": "Button",
                     "id": "be6a3424-830a-4566-9ae0-4ac07ec9d5c1",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Attack",
+                    "type": "Button",
+                    "id": "fdf004d5-befe-404c-a65c-0cd718a20b72",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BubbleShield",
+                    "type": "Button",
+                    "id": "db3298fe-a920-49d4-bed7-0e957f062c85",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -129,7 +147,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dogde",
+                    "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -140,7 +158,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dogde",
+                    "action": "Dodge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "43e2c154-5050-4a96-88b2-052fa90a4d88",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4adec7c7-c388-4d37-83f3-bda7435fa1f8",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "789a7b1f-b545-46cd-8e32-f64699170a23",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BubbleShield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cddfcc03-eaa0-4917-9758-d92397329ab3",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BubbleShield",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
