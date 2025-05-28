@@ -5,6 +5,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] private Attack _attack;
     [SerializeField] private GameObject _VFX;
+    [SerializeField] private GameObject caster;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,7 +15,7 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Hittable"))
+        if (collision.gameObject.CompareTag("Hittable") && collision.gameObject.name != caster.name)
         {
             _attack.PerformAttack();
         }
