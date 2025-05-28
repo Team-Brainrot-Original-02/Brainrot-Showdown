@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -43,6 +44,28 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log($"{gameObject.name} has died!");
+        if (isPlayer)
+        {
+            SceneManager.LoadScene("GameOverScene");
+            //Debug.Log($"{gameObject.name} has died!");
+        }
+        else
+        {
+            CheckVictoryCondition();
+        }
+    }
+    private void CheckVictoryCondition()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            Health playerHealth = player.GetComponent<Health>();
+            if (playerHealth != null && playerHealth.currentHealth > 0)
+            {
+                SceneManager.LoadScene("VictoryScene");
+                //Debug.Log($"{gameObject.name} has died!");
+            }
+        }
+
     }
 }
