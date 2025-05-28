@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6621d9abf5f08c049a315a866a6feca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 0}
+  healthData: {fileID: 11400000, guid: e47216d5f044cea4c873d4218eaf3817, type: 2}
+  healthIcons: []
+  isPlayer: 0
 --- !u!114 &6118081690748833674
 MonoBehaviour:
   m_ObjectHideFlags: 0
