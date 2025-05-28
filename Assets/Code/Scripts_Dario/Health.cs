@@ -1,43 +1,48 @@
 using UnityEngine;
-using UnityEngine.UI;
-
-//da attaccare al giocatore e all'npc nemico
-//gestisce la logica della salute di entrambi
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 100f; 
-    [SerializeField] private float currentHealth;   
-    public Slider healthBar;      
+    public CharacterHealthData healthData; 
+    private float currentHealth;
+    public GameObject[] healthIcons;
+    public bool isPlayer;
 
     void Start()
     {
-        currentHealth = maxHealth; 
-        UpdateHealthBar();      
+        currentHealth = healthData.maxHealth;
+        UpdateHealthDisplay();
     }
 
     public void TakeDamage(float amount)
     {
-        currentHealth -= amount;  
+        currentHealth -= amount;
+
         if (currentHealth <= 0)
         {
-            currentHealth = 0;    
-            Die();              
+            currentHealth = 0;
+            Die();
         }
-        //UpdateHealthBar();  
+
+        if (isPlayer)
+        {
+            UpdateHealthDisplay();
+        }
     }
 
-    private void UpdateHealthBar()
+    private void UpdateHealthDisplay()
     {
-        if (healthBar != null)
+        if (isPlayer)
         {
-            healthBar.value = currentHealth / maxHealth;
+            int healthCount = Mathf.FloorToInt(currentHealth) / Mathf.FloorToInt(healthData.maxHealth / healthIcons.Length);
+            for (int i = 0; i < healthIcons.Length; i++)
+            {
+                healthIcons[i].SetActive(i < healthCount);
+            }
         }
     }
 
     private void Die()
     {
         Debug.Log($"{gameObject.name} has died!");
-        // Handle death (e.g., disable character movement, trigger animation, etc.)
     }
 }
