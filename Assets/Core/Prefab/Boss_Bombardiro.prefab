@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147866610544435884}
+  - component: {fileID: 4710849517154441942}
   m_Layer: 0
   m_Name: Boss_Bombardiro
   m_TagString: Untagged
@@ -24,14 +25,35 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965474515198184616}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.76604444, z: -0, w: 0.64278764}
+  m_LocalRotation: {x: 0, y: 0.76604444, z: 0, w: 0.64278764}
   m_LocalPosition: {x: -2.95, y: 7.68, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5870769517817763471}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 100, z: 0}
+--- !u!65 &4710849517154441942
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965474515198184616}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.806561, y: 2.930571, z: 9.408746}
+  m_Center: {x: -0.005568027, y: 0.96528554, z: -0.00000047685575}
 --- !u!1001 &6265510630527431012
 PrefabInstance:
   m_ObjectHideFlags: 0
