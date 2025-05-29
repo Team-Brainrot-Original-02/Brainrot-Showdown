@@ -38,7 +38,7 @@ public class EnemyShooting : MonoBehaviour
     {
         float cooldown = UnityEngine.Random.Range(minBombCool, maxBombCool);
         yield return new WaitForSeconds(cooldown);
-        Instantiate(bombPrefab, bombMuzzle);
+        Instantiate(bombPrefab, bombMuzzle).SetActive(true);
     }
 
     private void StopCorutines()

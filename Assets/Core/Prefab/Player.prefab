@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 2401898280737974088}
   - component: {fileID: 8482927922635916271}
   - component: {fileID: 4658059033242998585}
+  - component: {fileID: 4492472868111420540}
   m_Layer: 0
   m_Name: Player
   m_TagString: Hittable
@@ -254,6 +255,25 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4492472868111420540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7541651724429718102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6695a777d408e4b80dd369c9d189c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 10
+  gravity: 9.81
+  jumpHeight: 2
+  isGrounded: 1
+  dodgeDuration: 0.3
+  dodge: {fileID: 4170112379520056645}
 --- !u!1001 &28657196776280173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -492,5 +512,10 @@ PrefabInstance:
 --- !u!4 &2066922639193714642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9165189998199768998, guid: ff6bf9d98ba6e0e4e8950692307eea1c, type: 3}
+  m_PrefabInstance: {fileID: 7178285417307023476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4170112379520056645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6503571229406123313, guid: ff6bf9d98ba6e0e4e8950692307eea1c, type: 3}
   m_PrefabInstance: {fileID: 7178285417307023476}
   m_PrefabAsset: {fileID: 0}
