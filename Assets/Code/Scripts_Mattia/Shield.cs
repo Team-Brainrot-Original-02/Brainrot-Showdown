@@ -11,10 +11,14 @@ public class Shield : MonoBehaviour
     public Action onShieldUp;
     public Action onShieldDown;
 
+    [Header("--- Animator ---")]
+    [SerializeField] Animator _AC;
+    [SerializeField] GameObject _Shield;
+
     private void Update()
     {
         // input for shield activation
-        if (Input.GetKeyDown(KeyCode.Space) && isShieldAvaible == true)
+        if (Input.GetKey(KeyCode.Z) && isShieldAvaible == true)
         {
             isShieldUp = true;
             isShieldAvaible = false;
@@ -25,11 +29,15 @@ public class Shield : MonoBehaviour
         if (isShieldUp == true)
         {
             Debug.Log("Shield is up");
+            _Shield.SetActive(true);
+            _AC.SetBool("isShieldUp", true);
             onShieldUp?.Invoke();
         }
         else
         {
             Debug.Log("Shield is down");
+            
+            _AC.SetBool("isShieldUp", false);
             onShieldDown?.Invoke();
         }
 
@@ -45,6 +53,7 @@ public class Shield : MonoBehaviour
     IEnumerator ShieldDuration()
     {
         yield return new WaitForSeconds(shieldDuration);
+        _Shield.SetActive(false);
         isShieldUp = false;
         Debug.Log("Shield is down");
     }

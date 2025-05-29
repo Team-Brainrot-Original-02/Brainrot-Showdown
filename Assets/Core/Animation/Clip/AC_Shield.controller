@@ -36,7 +36,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Shield_Trigger
+    m_ConditionEvent: isShieldUp
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8254585082537005592}
@@ -80,7 +80,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Shield_Trigger
+    m_ConditionEvent: isShieldUp
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1944801000200100047}
@@ -133,7 +133,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Shield_Trigger
+    m_ConditionEvent: isShieldUp
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8254585082537005592}
@@ -158,7 +158,7 @@ AnimatorController:
   m_Name: AC_Shield
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Shield_Trigger
+  - m_Name: isShieldUp
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
