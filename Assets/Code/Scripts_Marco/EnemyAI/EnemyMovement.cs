@@ -32,7 +32,7 @@ public class EnemyMovement : EnemyState
         Vector3 direction = Vector3.Normalize(playerPosition.position - rb.transform.position);
         float currentDistance = Vector3.Distance(playerPosition.position, rb.transform.position);
 
-        Debug.Log($"CurrentDist {currentDistance} {currentDistance < minDistanceToPlayer} {currentDistance > maxDistanceToPlayer}");
+       // Debug.Log($"CurrentDist {currentDistance} {currentDistance < minDistanceToPlayer} {currentDistance > maxDistanceToPlayer}");
 
         if (currentDistance < minDistanceToPlayer)
         {

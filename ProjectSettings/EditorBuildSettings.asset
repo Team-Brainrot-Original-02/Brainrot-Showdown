@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/S_Spiaggia.unity
+    guid: bc3d09852356eba48a464c6a12d33cc3
+  - enabled: 1
+    path: Assets/Scenes/VictoryScene.unity
+    guid: 24f31984a4dc406459cc3511a488b9bd
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: d3ec98c7067893f4a860e308e3eefbdc
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 0e6ea27db16076642bb58d877e886376, type: 3}
   m_UseUCBPForAssetBundles: 0

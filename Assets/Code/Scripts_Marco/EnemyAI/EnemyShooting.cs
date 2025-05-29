@@ -15,6 +15,8 @@ public class EnemyShooting : MonoBehaviour
     [SerializeField] private float maxBombCool = 10f;
     [SerializeField] private GameObject bombPrefab;
     [SerializeField] private Transform bombMuzzle;
+    [Header("--- Ref ---")]
+    [SerializeField] private Transform _Target;
 
     private void Awake()
     {
@@ -30,15 +32,21 @@ public class EnemyShooting : MonoBehaviour
 
     IEnumerator Missle()
     {
-        yield return new WaitForSeconds(missleCooldown);
-        Instantiate(misslePrefab, missleMuzzle);
+        while (true)
+        {
+            yield return new WaitForSeconds(missleCooldown);
+            GameObject missile = Instantiate(misslePrefab, missleMuzzle.position, Quaternion.identity);
+            missile.GetComponent<Rigidbody>().AddForce((_Target.transform.position - this.transform.position).normalized * 10);
+        }    
     }
 
     IEnumerator Bomb()
     {
+        while (true) { 
         float cooldown = UnityEngine.Random.Range(minBombCool, maxBombCool);
         yield return new WaitForSeconds(cooldown);
         Instantiate(bombPrefab, bombMuzzle).SetActive(true);
+        }
     }
 
     private void StopCorutines()
