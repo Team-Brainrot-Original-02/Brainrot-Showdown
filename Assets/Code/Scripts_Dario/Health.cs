@@ -16,6 +16,14 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (isPlayer)
+        {
+            Shield shield = GetComponent<Shield>();
+            if (shield != null && shield.isShieldUp)
+            {
+                return;
+            }
+        }
         currentHealth -= amount;
 
         if (currentHealth <= 0)
