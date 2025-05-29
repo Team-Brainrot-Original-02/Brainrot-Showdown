@@ -143,7 +143,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2974176221358597872}
   - component: {fileID: 743991375205808006}
-  - component: {fileID: 534301061992764087}
   - component: {fileID: 2401898280737974088}
   - component: {fileID: 8482927922635916271}
   - component: {fileID: 4658059033242998585}
@@ -200,24 +199,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &534301061992764087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7541651724429718102}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6695a777d408e4b80dd369c9d189c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 10
-  gravity: 9.81
-  jumpHeight: 2
-  isGrounded: 1
-  dodge: {fileID: 4170112379520056645}
 --- !u!114 &2401898280737974088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,12 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthData: {fileID: 11400000, guid: d9a5bcadb73309145a01b1dddb977d59, type: 2}
   currentHealth: 0
-  healthIcons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  healthIcons: []
   isPlayer: 1
 --- !u!136 &4658059033242998585
 CapsuleCollider:
@@ -516,10 +492,5 @@ PrefabInstance:
 --- !u!4 &2066922639193714642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9165189998199768998, guid: ff6bf9d98ba6e0e4e8950692307eea1c, type: 3}
-  m_PrefabInstance: {fileID: 7178285417307023476}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4170112379520056645 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6503571229406123313, guid: ff6bf9d98ba6e0e4e8950692307eea1c, type: 3}
   m_PrefabInstance: {fileID: 7178285417307023476}
   m_PrefabAsset: {fileID: 0}

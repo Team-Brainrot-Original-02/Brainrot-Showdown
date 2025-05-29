@@ -1315,6 +1315,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8482927922635916271, guid: 9159e2127e0958d45b42ff2aa70aed8b, type: 3}
+      propertyPath: healthIcons.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482927922635916271, guid: 9159e2127e0958d45b42ff2aa70aed8b, type: 3}
       propertyPath: 'healthIcons.Array.data[0]'
       value: 
       objectReference: {fileID: 1109957552}
